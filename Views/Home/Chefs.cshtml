@@ -1,0 +1,26 @@
+﻿@model List<Chef>
+<button onclick="location.href='@Url.Action("Dishes", "Home")'">Dishes</button>
+<button onclick="location.href='@Url.Action("NewChef", "Home")'">Add Chef</button>
+<div class="text-center">
+	<table class="table">
+	<thead>
+		<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Age</th>
+		<th scope="col"># of Dishes</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			foreach(var chef in Model)
+			{
+				<tr>
+					<th scope="row">@chef.FirstName @chef.LastName</th>
+					<td>@chef.Age</td>
+					<td>@chef.Dishes.Count</td>
+				</tr>
+			}
+		}
+	</tbody>
+	</table>
+</div>

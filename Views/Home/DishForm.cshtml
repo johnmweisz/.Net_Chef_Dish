@@ -1,0 +1,41 @@
+@model ChefsDish
+<form asp-action="NewDish" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="Dish.DishName"></label>
+        <span asp-validation-for="Dish.DishName"></span>
+        <input class="form-control" asp-for="Dish.DishName">
+    </div>
+    <div class="form-group">
+        <label asp-for="Dish.Calories"></label>
+        <span asp-validation-for="Dish.Calories"></span>
+        <input class="form-control" asp-for="Dish.Calories">
+    </div>
+    <div class="form-group">
+        <label asp-for="Dish.Tastiness"></label>
+        <span asp-validation-for="Dish.Tastiness"></span>
+    <select class="form-control" asp-for="Dish.Tastiness">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Dish.Description"></label>
+        <span asp-validation-for="Dish.Description"></span>
+        <input class="form-control" asp-for="Dish.Description">
+    </div>
+    <div class="form-group">
+    <label asp-for="Dish.ChefId"></label>
+    <select class="form-control" asp-for="Dish.ChefId">
+    @{
+        foreach(var chef in Model.Chefs)
+        {
+            <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+        }
+    }
+    </select>
+    </div>
+    <button>Submit</button>
+</form>
